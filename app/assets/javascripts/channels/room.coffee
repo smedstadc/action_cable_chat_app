@@ -7,6 +7,7 @@ App.room = App.cable.subscriptions.create "RoomChannel",
 
   received: (data) ->
     console.log(data)
+    alert("You have a new mention from " + data.mention) if data.mention
     unless data.message.blank?
       $('#messages-table').append data.message
       scroll_bottom()
